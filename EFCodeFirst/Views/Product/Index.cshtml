@@ -1,0 +1,53 @@
+﻿@model IEnumerable<EFCodeFirst.DAL.Entities.Product>
+@{
+    ViewData["Title"] = "Product List";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <table style="width:100%">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.IdProduct)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NameProduct)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Price)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                @foreach (var product in Model)
+                {
+                    <tr>
+                        <td>@product.IdProduct</td>
+                        <td>@product.NameProduct</td>
+                        <td>@product.Price</td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td>
+                        <div>
+                            No product avaiable at this moment
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,49 @@
+﻿@model IEnumerable<EFCodeFirst.DAL.Entities.Category>
+@{
+    ViewData["Title"] = "Category List";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <table style="width:100%">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.IdCateogory)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NameCategory)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                @foreach (var category in Model)
+                {
+                    <tr>
+                        <td>@category.IdCateogory</td>
+                        <td>@category.NameCategory</td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td>
+                        <div>
+                            No product avaiable at this moment
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>
